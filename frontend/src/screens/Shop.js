@@ -1,10 +1,11 @@
 import React from 'react'
 import { Container, Grid } from '@material-ui/core'
 
-import { Window } from '../components'
+import { Product } from '../components'
 import { shops } from '../samples/shops'
 
-export function Shop ({ shop }) {
+export function Shop ({ shop, match, location }) {
+  const { params: { name } } = match
   return (
     <Container style={{ background: '#f0f0f0' }}>
       <Grid
@@ -15,9 +16,10 @@ export function Shop ({ shop }) {
         justify='flex-start'
         alignItems='flex-start'
       >
+        hewwooo
         {shop.products.map((p, i) => (
           <Grid key={i} item>
-            <Window shop={p} />
+            <Product product={p} />
           </Grid>
         ))}
       </Grid>
