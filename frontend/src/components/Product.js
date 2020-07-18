@@ -21,8 +21,8 @@ export function Product({ product, cart, addToCart = () => {} }) {
             <CardContent style={{ position: 'absolute', top: 0 }}>
               <Typography variant='overline' style={{ fontSize: 16, color: data?.darkMuted, transition: 'all 0.2s ease', lineHeight: 1.5 }}>{product.name}</Typography>
             </CardContent>
-            <div style={{ position: 'absolute', bottom: 12, right: 12, fontSize: 32, color: data?.darkMuted }}>
-              {'$' + product.price}
+            <div style={{ position: 'absolute', bottom: 12, right: 12, fontSize: 20, color: data?.darkMuted }}>
+              {'$' + product.price.toFixed(2)}
             </div>
             <div style={{ position: 'absolute', bottom: -8, paddingLeft: 8 }}>
               <img src={product.image} style={{ maxHeight: 120, maxWidth: 120 }} />
@@ -38,7 +38,7 @@ export function Product({ product, cart, addToCart = () => {} }) {
                   <Typography variant='overline' style={{ fontSize: 24, color: data?.darkMuted, transition: 'all 0.2s ease', lineHeight: 1.5 }}>{product.name}</Typography>
                 </div>
                 <div>
-                  <Typography variant='overline' style={{ fontSize: 24, color: data?.darkMuted, transition: 'all 0.2s ease', lineHeight: 1.5 }}>{'$' + product.price}</Typography>
+                  <Typography variant='overline' style={{ fontSize: 24, color: data?.darkMuted, transition: 'all 0.2s ease', lineHeight: 1.5 }}>{'$' + product.price.toFixed(2)}</Typography>
                 </div>
               </CardContent>
               <IconButton style={{ position: 'absolute', bottom: 4, right: 4 }} onClick={handleAddShopping}>
