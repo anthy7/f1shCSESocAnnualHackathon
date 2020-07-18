@@ -13,7 +13,7 @@ export function Landing() {
     minHeight:150
   
     }}>
-        Home
+        Welcome to Plaza
     </Box>
     <Box style= {{display: "flex", 
     justifyContent:"center"
