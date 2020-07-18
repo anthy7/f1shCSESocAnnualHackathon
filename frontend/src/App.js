@@ -11,7 +11,7 @@ function App () {
     setShoppingCart([...shoppingCart, product])
   }
   const LandingPage = ({ ...props }) => <Landing setLocal={setLocal} {...props} />
-  const ShopPage = ({ ...props }) => <Shop cart={shoppingCart} addToCart={addToCart} {...props} />
+  const ShopPage = ({ ...props }) => <Shop cart={shoppingCart} local={local} addToCart={addToCart} {...props} />
   const ShopsPage = ({ ...props }) => <Shops cart={shoppingCart} setLocal={setLocal} {...props} />
   
   return (

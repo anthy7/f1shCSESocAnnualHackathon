@@ -32,8 +32,70 @@ import bakery3 from '../images/bakery/rolls.png'
 import bakery4 from '../images/bakery/round.png'
 import bakery5 from '../images/bakery/sourdough.png'
 
+const shopDefault1 = {
+  name: 'Sophie\'s Flowers',
+  description: 'We stock an assortment of flowers. Our most popular for July are lilies, hyacinths and cosmos! We offer custom gift wrapping and can fulfil any request. Just shoot us a message on 0428 288 123!',
+  products: [
+    {
+      name: 'Bath Salt',
+      image: bath1,
+      description: 'Add to your bath for a relaxing experience. 100g of product.',
+      price: 6.50
+    },
+    {
+      name: 'Bath Tea',
+      image: bath2,
+      description: 'Dunk into your bath for a relaxing experience. Scented with yellow roses.',
+      price: 8.20
+    },
+    {
+      name: 'Pink Bar',
+      image: bath3,
+      description: 'The product that made us big. Soap scented with pink roses from my garden and naturally coloured with pink roses. 100g of product.',
+      price: 7.00
+    },
+    {
+      name: 'Soap',
+      image: bath4,
+      description: 'Regular old unscented soap! 100g of product.',
+      price: 5.00
+    }
+  ]
+}
+
+const shopDefault2 = {
+  name: 'The Smiths',
+  description: 'Shop of Diana and Pierre Smith',
+  products: [
+    {
+      name: 'Bath Salt',
+      image: bath1,
+      description: 'Add to your bath for a relaxing experience. 100g of product.',
+      price: 6.50
+    },
+    {
+      name: 'Bath Tea',
+      image: bath2,
+      description: 'Dunk into your bath for a relaxing experience. Scented with yellow roses.',
+      price: 8.20
+    },
+    {
+      name: 'Pink Bar',
+      image: bath3,
+      description: 'The product that made us big. Soap scented with pink roses from my garden and naturally coloured with pink roses. 100g of product.',
+      price: 7.00
+    },
+    {
+      name: 'Soap',
+      image: bath4,
+      description: 'Regular old unscented soap! 100g of product.',
+      price: 5.00
+    }
+  ]
+}
+
 const shop1 = {
-  name: 'Rose Apothecery',
+  name: 'Rose Apothecary',
   description: 'Hi, Rose here! I sell fun things in your baths in this shop. Some things you might enjoy are the rose scents from my back garden!',
   products: [
     {
@@ -60,6 +122,9 @@ const shop1 = {
       description: 'Regular old unscented soap! 100g of product.',
       price: 5.00
     }
+  ],
+  neighbours: [
+    shopDefault1, shopDefault2
   ]
 }
 const shop2 = {
@@ -90,6 +155,9 @@ const shop2 = {
       description: '7 sunflowers.',
       price: 20.00
     }
+  ],
+  neighbours: [
+    shop1, shopDefault1
   ]
 }
 const shop3 = {
@@ -120,6 +188,9 @@ const shop3 = {
       description: 'Happy yellow pot adorned with white lily details.',
       price: 20.00
     }
+  ],
+  neighbours: [
+    shop1, shop2
   ]
 }
 const shop4 = {
@@ -162,6 +233,9 @@ const shop4 = {
       description: 'Ted\'s unusually long bear',
       price: 16
     }
+  ],
+  neighbours: [
+    shop1, shop2
   ]
 }
 const shop5 = {
@@ -192,6 +266,9 @@ const shop5 = {
       description: 'Freshing, moisturising mask treatment for your skin. 200g of product.',
       price: 17.00
     }
+  ],
+  neighbours: [
+    shop1, shop2
   ]
 }
 
@@ -223,6 +300,9 @@ const shop6 = {
       description: 'You said you\'d start making this right? Now you don\'t have to!',
       price: 4.00
     }
+  ],
+  neighbours: [
+    shop1, shop2
   ]
 }
 export const shops = [

@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import slugify from 'slugify'
-import { Container, Grid, Typography } from '@material-ui/core'
+import { Box, Container, Grid, Typography } from '@material-ui/core'
 
 import { Window } from '../components'
 import { locations } from '../samples/locations'
@@ -12,8 +12,9 @@ export function Shops ({ match, setLocal = () => {} }) {
   setLocal(location.name)
   return (
     <Container>
+      <Box style={{ display: 'flex', justifyContent: 'center' }}>
       <Grid
-        style={{ maxWidth: 720 }}
+        style={{ maxWidth: 800 }}
         spacing={8}
         container
         direction='row'
@@ -28,6 +29,7 @@ export function Shops ({ match, setLocal = () => {} }) {
           </Grid>
         ))}
       </Grid>
+      </Box>
     </Container>
   )
 }
