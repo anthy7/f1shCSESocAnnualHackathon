@@ -8,6 +8,7 @@ export function Shops() {
 
   return (
     <Grid
+      spacing={2}
       container
       direction="row"
       justify="center"
@@ -15,7 +16,7 @@ export function Shops() {
       style={{ background: '#f0f0f0' }}
     >
       {shops.map(s => (
-        <Grid> 
+        <Grid item> 
           <Window shop={s} />
         </Grid>
       ))}
