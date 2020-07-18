@@ -1,17 +1,22 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom';
-import { Shops } from './screens'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import Header from './components/Header'
+import { Shops, Landing } from './screens'
 
 function App() {
   return (
-    <div>
+    <Router>
+      <Header />
       <Switch>
-        <Route path="/" component={Shops} />
-        <Route path="/shops" component={Shops} />
-        <Route component={Error} />
+        <Route exact path='/'>
+          <Landing />
+        </Route>
+        <Route path='/shops'>
+          <Shops />
+        </Route>
       </Switch>
-    </div>
+    </Router>
   )
 }
 
-export default App;
+export default App

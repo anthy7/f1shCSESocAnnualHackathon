@@ -1,13 +1,12 @@
-import React from 'react';
-import { Container, Grid, Paper } from '@material-ui/core';
+import React from 'react'
+import { Container, Grid } from '@material-ui/core'
 
 import { Window } from '../components'
 import { shops } from '../samples/shops'
 
-export function Shops() {
-
+export function Shop ({ shop }) {
   return (
-    <Container>
+    <Container style={{ background: '#f0f0f0' }}>
       <Grid
         style={{ maxWidth: 800 }}
         spacing={2}
@@ -16,13 +15,12 @@ export function Shops() {
         justify='flex-start'
         alignItems='flex-start'
       >
-        {shops.map(s => (
-          <Grid item>
-            <Window shop={s} />
+        {shop.products.map((p, i) => (
+          <Grid key={i} item>
+            <Window shop={p} />
           </Grid>
         ))}
       </Grid>
     </Container>
-  );
+  )
 }
-

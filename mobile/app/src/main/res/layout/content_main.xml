@@ -8,16 +8,8 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/app_bar_main"
         tools:context=".MainActivity" android:orientation="vertical">
-
-    <TextView
-            android:text="Active Orders"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView6"
-            android:textSize="24sp"/>
-    <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:id="@+id/ordersList"
-            android:layout_height="match_parent"
-            android:layout_marginTop="16dp"/>
+    <LinearLayout android:id="@+id/constraintLayout"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"/>
 </LinearLayout>
