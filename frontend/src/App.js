@@ -1,17 +1,34 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import { AppBar, Toolbar, Typography } from '@material-ui/core'
 import { Shops, Landing } from './screens'
 
-function App() {
+function App () {
   return (
-    <div>
+    <Router>
+      <AppBar position='static'>
+        <Toolbar style={{
+          minHeight: 128,
+          padding: 4,
+        }}>
+          <Typography variant='overhead'>
+            PLAZA
+        </Typography>
+          <Typography variant='h6'>
+            <Link to='/shops'>lol</Link>
+          </Typography>
+        </Toolbar>
+      </AppBar>
       <Switch>
-        <Route path="/" component={Landing} />
-        <Route path="/shops" component={Shops} />
-        <Route component={Error} />
+        <Route exact path='/'>
+          <Landing />
+        </Route>
+        <Route path='/shops'>
+          <Shops />
+        </Route>
       </Switch>
-    </div>
+    </Router>
   )
 }
 
-export default App;
+export default App
