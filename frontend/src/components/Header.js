@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     display: 'none',
-    flexGrow: 1,
     fontSize: 16,
     [theme.breakpoints.up('sm')]: {
       display: 'block',
@@ -25,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   search: {
     position: 'relative',
+    flexGrow: 1,
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
     '&:hover': {
@@ -86,14 +86,6 @@ export default function Header() {
     <div className={classes.grow}>
       <AppBar position='static'>
         <Toolbar>
-          <IconButton
-            edge='start'
-            className={classes.menuButton}
-            color='inherit'
-            aria-label='open drawer'
-          >
-            <MenuIcon />
-          </IconButton>
           <Typography className={classes.title} variant='overline' noWrap>
             Plaza
           </Typography>

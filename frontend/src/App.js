@@ -16,16 +16,6 @@ function App () {
 
   return (
     <Router>
-      <AppBar position='static'>
-        <Toolbar>
-          <Typography variant='overhead'>
-            PLAZA
-          </Typography>
-          <Typography variant='h6'>
-            <Link to='/shops'>lol</Link>
-          </Typography>
-        </Toolbar>
-      </AppBar>
       <Header />
       <Switch>
         <Route exact path='/'>
