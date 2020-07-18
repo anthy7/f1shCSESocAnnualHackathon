@@ -5,7 +5,7 @@ import { Container, Grid, Typography } from '@material-ui/core'
 import { Product } from '../components'
 import { shops } from '../samples/shops'
 
-export function Shop ({ match }) {
+export function Shop ({ match, cart, addToCart = () => {} }) {
   const name = match.params.name
   const shop = shops.find(s => slugify(s.name) === name)
   return (
@@ -23,7 +23,7 @@ export function Shop ({ match }) {
         >
           {shop.products.map((p, i) => (
             <Grid key={i} item>
-              <Product product={p} />
+              <Product product={p} cart={cart} addToCart={addToCart} />
             </Grid>
         ))}
         </Grid>
