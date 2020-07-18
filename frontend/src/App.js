@@ -7,7 +7,10 @@ function App () {
   return (
     <Router>
       <AppBar position='static'>
-        <Toolbar>
+        <Toolbar style={{
+          minHeight: 128,
+          padding: 4,
+        }}>
           <Typography variant='overhead'>
             PLAZA
         </Typography>
