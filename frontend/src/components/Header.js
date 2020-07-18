@@ -17,9 +17,7 @@ const Header = ({ history, match, cart = [], local }) => {
       <div style={{ display: 'flex' }}>
         <div style={{ marginTop: 4 }}>
           <IconButton onClick={() => history.goBack()}>
-            <Badge badgeContent={cart.length} color='primary'>
-              <ArrowBackRoundedIcon />
-            </Badge>
+            <ArrowBackRoundedIcon />
           </IconButton>
         </div>
         <div style={{
