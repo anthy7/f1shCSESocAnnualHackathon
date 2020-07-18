@@ -5,7 +5,7 @@ import { Product } from '../components'
 import { shops } from '../samples/shops'
 
 export function Shop ({ shop, match, location }) {
-  const { params: { name } } = match
+  const name = match.params.name
   return (
     <Container style={{ background: '#f0f0f0' }}>
       <Grid
@@ -17,6 +17,7 @@ export function Shop ({ shop, match, location }) {
         alignItems='flex-start'
       >
         hewwooo
+        <p>{name}</p>
         {shop.products.map((p, i) => (
           <Grid key={i} item>
             <Product product={p} />

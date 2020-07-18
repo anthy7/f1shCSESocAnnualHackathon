@@ -19,17 +19,16 @@ const users = [
 ]
 
 const UserPage = ({ match, location }) => {
-  const { params: { userId } } = match
+  const { params: { name } } = match
 
   return (
     <>
       <p>
         <strong>User ID: </strong>
-        {userId}
+        {name}
       </p>
       <p>
         <strong>User Name: </strong>
-        {users[userId - 1].name}
       </p>
     </>
   )
@@ -63,11 +62,7 @@ function App () {
         <Route path='/shops'>
           <Shops />
         </Route>
-        <Route path='/shop'>
-          <Shop shop={shops[0]} />
-        </Route>
-        <Route path='/shops/:name' component={Shop} />
-        <Route exact path='/user/:name' component={Shop} />
+        <Route exact path='/shop/:name' component={Shop} />
       </Switch>
     </Router>
   )
