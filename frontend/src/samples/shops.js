@@ -33,7 +33,7 @@ import bakery4 from '../images/bakery/round.png'
 import bakery5 from '../images/bakery/sourdough.png'
 
 const shop1 = {
-  name: 'Rose Apothacery',
+  name: 'Rose Apothecery',
   description: 'Hi, Rose here! I sell fun things in your baths in this shop. Some things you might enjoy are the rose scents from my back garden!',
   products: [
     {
