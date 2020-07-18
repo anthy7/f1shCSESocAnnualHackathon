@@ -6,7 +6,7 @@ import { shops } from '../samples/shops'
 
 export function Shops () {
   return (
-    <Container style={{ background: '#f0f0f0' }}>
+    <Container>
       <Grid
         style={{ maxWidth: 800 }}
         spacing={2}
