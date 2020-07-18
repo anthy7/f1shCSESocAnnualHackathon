@@ -6,7 +6,9 @@ import { Shops, Landing } from './screens'
 function App () {
   return (
     <Router>
-      <AppBar position='static'>
+      <AppBar position='static' style={{
+        marginBottom: 24
+      }}>
         <Toolbar style={{
           minHeight: 128,
           padding: 4,
