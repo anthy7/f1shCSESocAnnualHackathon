@@ -16,7 +16,7 @@ export function Map ({ locations = [] }) {
   return (
     <ReactMapGL
       mapboxApiAccessToken={token}
-      mapStyle='mapbox://styles/marcuslo/ckchj1d8c1xf21imozx10oqwx'
+      mapStyle='mapbox://styles/marcuslo/ckcrgv57k0uat1iqx1mg1y3iq'
       {...viewport}
       onViewportChange={nextViewport => setViewport(nextViewport)}
     >
