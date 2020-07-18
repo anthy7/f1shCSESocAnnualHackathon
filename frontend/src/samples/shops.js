@@ -116,7 +116,7 @@ const shop4 = {
     },
     {
       name: 'Graduation Bear',
-      image: toys4
+      image: toys4,
       price: 18
     },
     {
