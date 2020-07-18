@@ -1,2 +1,3 @@
 export { Window } from './Window'
-export {Map} from './Map'
+export { Product } from './Product'
+export { Map } from './Map'
