@@ -8,13 +8,6 @@ import Box from '@material-ui/core/Box';
 export function Landing() {
 
   return (
-    <>
-    <Box style= {{textAlign:"center",
-    minHeight:150
-  
-    }}>
-        Home
-    </Box>
     <Box style= {{display: "flex", 
     justifyContent:"center"
     }}> 
@@ -27,7 +20,6 @@ export function Landing() {
         ]
       }/>
     </Box>
-    </>
-  );
+  )
 }
 
