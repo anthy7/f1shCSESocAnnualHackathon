@@ -1,40 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import { AppBar, Toolbar, Typography } from '@material-ui/core'
 import { Shops, Landing, Shop } from './screens'
 import Header from './components/Header'
 
-import { shops } from './samples/shops'
-
 function App () {
-  const shopUrls = []
-  for (let i = 0; i < shops.length; i++) {
-    const str = shops[i].name.replace(/\s+/g, '-').toLowerCase()
-    shopUrls.push(str)
-    console.log(str)
+  const [shoppingCart, setShoppingCart] = useState([])
+  const [local, setLocal] = useState()
+  const addToCart = (product) => {
+    setShoppingCart([...shoppingCart, product])
   }
-
+  const LandingPage = ({ ...props }) => <Landing setLocal={setLocal} {...props} />
+  const ShopPage = ({ ...props }) => <Shop cart={shoppingCart} addToCart={addToCart} {...props} />
+  const ShopsPage = ({ ...props }) => <Shops cart={shoppingCart} setLocal={setLocal} {...props} />
+  
   return (
     <Router>
-      <AppBar position='static'>
-        <Toolbar>
-          <Typography variant='overhead'>
-            PLAZA
-          </Typography>
-          <Typography variant='h6'>
-            <Link to='/shops'>lol</Link>
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Header />
+      <Header cart={shoppingCart} local={local} />
       <Switch>
-        <Route exact path='/'>
-          <Landing />
-        </Route>
-        <Route path='/shops'>
-          <Shops />
-        </Route>
-        <Route exact path='/shop/:name' component={Shop} />
+        <Route exact path='/' component={LandingPage}/>
+        <Route exact path='/shop/:name' component={ShopPage} />
+        <Route exact path='/shops/:name' component={ShopsPage} />
       </Switch>
     </Router>
   )
