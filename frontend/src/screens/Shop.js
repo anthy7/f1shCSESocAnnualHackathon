@@ -14,7 +14,7 @@ export function Shop ({ match, cart, addToCart = () => {} }) {
       <div>
         <Typography variant='overline' style={{ fontSize: 32 }}>{shop.name}</Typography>
         <Grid
-          style={{ maxWidth: 1200 }}
+          style={{ maxWidth: 720 }}
           spacing={2}
           container
           direction='row'

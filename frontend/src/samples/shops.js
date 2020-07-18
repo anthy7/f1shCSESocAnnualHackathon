@@ -200,12 +200,6 @@ const shop6 = {
   description: 'We sell bread. Contact Brandon for enquiries.',
   products: [
     {
-      name: 'Donut',
-      image: bakery1,
-      description: 'Frosty donut.',
-      price: 3.00
-    },
-    {
       name: 'Loaf',
       image: bakery2,
       description: 'Loaf of bread.',

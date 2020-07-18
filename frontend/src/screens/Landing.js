@@ -1,11 +1,10 @@
 import React from 'react';
-import { Grid, Paper } from '@material-ui/core';
 
 import { Map } from '../components'
 import Box from '@material-ui/core/Box';
 
-export function Landing() {
-
+export function Landing({ setLocal = () => {} }) {
+  setLocal(null)
   return (
     <Box style={{ display: 'flex', justifyContent: 'center' }}>
       <div style={{ overflow: 'hidden', borderRadius: 8 }}>
