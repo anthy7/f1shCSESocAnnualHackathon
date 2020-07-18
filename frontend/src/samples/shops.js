@@ -1,31 +1,119 @@
+import bath1 from '../images/bath/bath_salt.png'
+import bath2 from '../images/bath/bath_tea.png'
+import bath3 from '../images/bath/pink_bar.png'
+import bath4 from '../images/bath/soap.png'
+
+import florist1 from '../images/florist/magenta_flower.png'
+import florist2 from '../images/florist/orange_flower.png'
+import florist3 from '../images/florist/pink_flower.png'
+import florist4 from '../images/florist/sunflower.png'
+import florist5 from '../images/florist/sunflower_2.png'
+
+import pottery1 from '../images/pottery/blue_cup.png'
+import pottery2 from '../images/pottery/purple_pot.png'
+import pottery3 from '../images/pottery/whitepot.png'
+import pottery4 from '../images/pottery/yellowpot.png'
+
+import toys1 from '../images/toys/brown_teddy.png'
+import toys2 from '../images/toys/bunny.png'
+import toys3 from '../images/toys/giraffe.png'
+import toys4 from '../images/toys/grad_teddy.png'
+import toys5 from '../images/toys/koala.png'
+import toys6 from '../images/toys/owl.png'
+
 const shop1 = {
-  name: 'Honeymeads',
+  name: 'Rose Apothacery',
   products: [
     {
-      name: 'Beeswax wrap',
-      image: 'https://ae01.alicdn.com/kf/H8d77298dc76f490b89013b1d032fdfd4r/reusable-bee-beeswax-wrap-bees-wax-food-wraps-3pcs-Beeswax-Wrap-Cloth-Fresh-Keeping-Sets-Food.jpg'
+      name: 'Bath Salt',
+      image: bath1
     },
     {
-      name: 'Raw honey',
-      image: 'https://saveourbees.com.au/wp-content/uploads/2017/04/sydney-raw-honey-jar-420gram.png'
+      name: 'Bath Tea',
+      image: bath2
+    },
+    {
+      name: 'Pink Bar',
+      image: bath3
+    },
+    {
+      name: 'Soap',
+      image: bath4
+    },
+  ]
+}
+const shop2 = {
+  name: 'Sophie\'s Flowers',
+  products: [
+    {
+      name: 'Magenta Flowers',
+      image: florist1
+    },
+    {
+      name: 'Orange Flowers',
+      image: florist2
+    },
+    {
+      name: 'Pink Flowers',
+      image: florist3
+    },
+    {
+      name: 'Sunflowers',
+      image: florist4
     }
   ]
 }
-
-const shop2 = {
-  name: 'Hand-made Teddy Bears',
+const shop3 = {
+  name: 'The Smiths',
   products: [
     {
-      name: 'Classic brown bear',
-      image: 'https://www.kmart.com.au/wcsstore/Kmart/images/ncatalog/f/3/42338673-1-f.jpg'
+      name: 'Blue Cup',
+      image: pottery1
     },
     {
-      name: 'Beeswax wrap',
-      image: 'https://ae01.alicdn.com/kf/H8d77298dc76f490b89013b1d032fdfd4r/reusable-bee-beeswax-wrap-bees-wax-food-wraps-3pcs-Beeswax-Wrap-Cloth-Fresh-Keeping-Sets-Food.jpg'
+      name: 'Purple Pot',
+      image: pottery2
+    },
+    {
+      name: 'White Pot',
+      image: pottery3
+    },
+    {
+      name: 'Yellow Pot',
+      image: pottery4
+    },
+  ]
+}
+const shop4 = {
+  name: 'Teds Teddies',
+  products: [
+    {
+      name: 'Brown Teddy Bear',
+      image: toys1
+    },
+    {
+      name: 'Bunny',
+      image: toys2
+    },
+    {
+      name: 'Giraffe',
+      image: toys3
+    },
+    {
+      name: 'Graduation Bear',
+      image: toys4
+    },
+    {
+      name: 'Koala Bear',
+      image: toys5
+    },
+    {
+      name: 'Owl',
+      image: toys6
     }
   ]
 }
 
 export const shops = [
-  shop1, shop2, shop1, shop2, shop1, shop2, shop1, shop2
+  shop1, shop2, shop3, shop4
 ]

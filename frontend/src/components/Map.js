@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import slugify from 'slugify'
 import ReactMapGL, { Marker } from 'react-map-gl'
 import { Typography, Grid } from '@material-ui/core'
-import AddLocationRoundedIcon from '@material-ui/icons/AddLocationRounded'
 import StorefrontIcon from '@material-ui/icons/Storefront';
 
 const token = 'pk.eyJ1IjoibWFyY3VzbG8iLCJhIjoiY2tjaGRvYnJxMGxnYzJ4bGl3N3dndm13NCJ9.dtmAg8NbFDHLSAXwlqmCXg'
@@ -23,7 +23,9 @@ export function Map ({ locations = [] }) {
       onViewportChange={nextViewport => setViewport(nextViewport)}
     >
       {locations.map((m, i) => (
+        
         <Marker latitude={m.latitude} longitude={m.longitude}>
+          <Link to={'/shops/' + slugify(m.name)} style={{ color: 'black', textDecoration: 'none' }}>
           <Grid
             container
             direction="row"
@@ -41,12 +43,13 @@ export function Map ({ locations = [] }) {
 
             </Grid>
             <Grid item>
-              <Typography variant='overline'>
+              <Typography variant='overline' style={{ color: 'black', textDecoration: 'none' }}>
               {m.name}
               </Typography>
             </Grid>
           
           </Grid>
+          </Link>
         </Marker>
       ))}
     </ReactMapGL>

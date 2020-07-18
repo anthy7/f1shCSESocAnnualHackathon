@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import { fade, makeStyles } from '@material-ui/core/styles'
 import { AppBar, Toolbar, IconButton, Typography, InputBase, Badge, MenuItem, Menu } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
@@ -22,13 +23,19 @@ const useStyles = makeStyles((theme) => ({
       display: 'block',
     },
   },
+  link: {
+    color: 'black',
+    textDecoration: 'none',
+  },
   search: {
     position: 'relative',
     flexGrow: 1,
+    color: 'black',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
+    backgroundColor: fade(theme.palette.common.black, 0.15),
+    transition: 'all 0.2s ease',
     '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
+      backgroundColor: fade(theme.palette.common.black, 0.25),
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
@@ -42,8 +49,7 @@ const useStyles = makeStyles((theme) => ({
     color: 'inherit',
   },
   inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
+    padding: 12,
     paddingLeft: 16,
     transition: theme.transitions.create('width'),
     width: '100%',
@@ -84,10 +90,12 @@ export default function Header() {
 
   return (
     <div className={classes.grow}>
-      <AppBar position='static'>
+      <AppBar position='static' style={{ background: 'none', boxShadow: 'none' }}>
         <Toolbar>
           <Typography className={classes.title} variant='overline' noWrap>
-            Plaza
+            <Link to='/' className={classes.link} >
+              Plaza
+            </Link>
           </Typography>
           <div className={classes.search}>
             <InputBase
@@ -99,12 +107,12 @@ export default function Header() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
-            <IconButton aria-label='show 4 new mails' color='inherit'>
+            <IconButton aria-label='show 4 new mails' color='black'>
               <Badge badgeContent={4} color='secondary'>
                 <MailIcon />
               </Badge>
             </IconButton>
-            <IconButton aria-label='show 17 new notifications' color='inherit'>
+            <IconButton aria-label='show 17 new notifications' color='black'>
               <Badge badgeContent={17} color='secondary'>
                 <NotificationsIcon />
               </Badge>
