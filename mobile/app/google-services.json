@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "546131130962",
+    "firebase_url": "https://plaza-81a85.firebaseio.com",
+    "project_id": "plaza-81a85",
+    "storage_bucket": "plaza-81a85.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546131130962:android:62cb97f86708704bdb7d8b",
+        "android_client_info": {
+          "package_name": "com.lunar.plaza"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "546131130962-3t2piq4j7u25r1hflu2jci1096kf3u5b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbWHCS4ITwlyPYeuw2vlhbawi-UfkXmxk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "546131130962-3t2piq4j7u25r1hflu2jci1096kf3u5b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
