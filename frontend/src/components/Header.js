@@ -2,132 +2,36 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import { fade, makeStyles } from '@material-ui/core/styles'
 import { AppBar, Toolbar, IconButton, Typography, InputBase, Badge, MenuItem, Menu } from '@material-ui/core'
-import MenuIcon from '@material-ui/icons/Menu'
-import AccountCircle from '@material-ui/icons/AccountCircle'
-import MailIcon from '@material-ui/icons/Mail'
-import NotificationsIcon from '@material-ui/icons/Notifications'
-import MoreIcon from '@material-ui/icons/MoreVert'
-
-const useStyles = makeStyles((theme) => ({
-  grow: {
-    flexGrow: 1,
-    marginBottom: 24
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    display: 'none',
-    fontSize: 16,
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
-  },
-  link: {
-    color: 'black',
-    textDecoration: 'none',
-  },
-  search: {
-    position: 'relative',
-    flexGrow: 1,
-    color: 'black',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.black, 0.15),
-    transition: 'all 0.2s ease',
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.black, 0.25),
-    },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(3),
-      width: 'auto',
-    },
-  },
-  inputRoot: {
-    color: 'inherit',
-  },
-  inputInput: {
-    padding: 12,
-    paddingLeft: 16,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
-  sectionDesktop: {
-    display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
-    },
-  },
-  sectionMobile: {
-    display: 'flex',
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
-  },
-}))
+import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
 
 export default function Header() {
-  const classes = useStyles()
-  const [anchorEl, setAnchorEl] = React.useState(null)
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null)
-
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget)
-  }
-
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null)
-  }
-
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget)
-  }
-
   return (
-    <div className={classes.grow}>
-      <AppBar position='static' style={{ background: 'none', boxShadow: 'none' }}>
-        <Toolbar>
-          <Typography className={classes.title} variant='overline' noWrap>
-            <Link to='/' className={classes.link} >
-              Plaza
-            </Link>
-          </Typography>
-          <div className={classes.search}>
-            <InputBase
-              placeholder='Search…'
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
-            <IconButton aria-label='show 4 new mails' color='black'>
-              <Badge badgeContent={4} color='secondary'>
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label='show 17 new notifications' color='black'>
-              <Badge badgeContent={17} color='secondary'>
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              edge='end'
-              aria-label='account of current user'
-              aria-haspopup='true'
-              onClick={handleProfileMenuOpen}
-              color='inherit'
-            >
-              <AccountCircle />
-            </IconButton>
-        </Toolbar>
-      </AppBar>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: 32 }}>
+      <Typography variant='overline' style={{ fontSize: 40 }}>
+        Plaza
+      </Typography>
+      <div style={{
+        position: 'relative',
+        flexGrow: 1,
+        color: 'black',
+        borderRadius: 8,
+        backgroundColor: 'rgba(0, 0 ,0, 0.1)',
+        marginRight: 8,
+        marginLeft: 0,
+        width: 400,
+        padding: 12
+      }}>
+        <InputBase
+          placeholder='Search…'
+        />
+      </div>
+      <div style={{ marginTop: 16 }}>
+        <IconButton>
+          <Badge badgeContent={10} color='primary'>
+            <ShoppingCartRoundedIcon />
+          </Badge>
+        </IconButton>
+      </div>
     </div>
   )
 }
