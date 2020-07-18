@@ -30,7 +30,7 @@ export function Product({ product, cart, addToCart = () => {} }) {
           </CardActionArea>
           <Dialog onClose={handleClose} open={open}>
             <Card elevation={0} style={{ width: 500, height: 300, background: data?.lightMuted, boxShadow: shadow, transition: 'all 0.2s ease' }}>
-              <IconButton style={{ position: 'absolute', top: 4, right: 4 }} onClick={() => setOpen(false)}>
+              <IconButton style={{ position: 'absolute', top: 4, right: 4, zIndex: 2 }} onClick={() => setOpen(false)}>
                 <HighlightOffRoundedIcon />
               </IconButton>
               <CardContent style={{ position: 'absolute', top: 0 }}>
@@ -38,6 +38,9 @@ export function Product({ product, cart, addToCart = () => {} }) {
                   <Typography variant='overline' style={{ fontSize: 24, color: data?.darkMuted, transition: 'all 0.2s ease', lineHeight: 1.5 }}>{product.name}</Typography>
                 </div>
                 <div>
+                  <Typography variant='p' style={{ fontSize: 14, color: data?.darkMuted, transition: 'all 0.2s ease', lineHeight: 1.5 }}>{product.description}</Typography>
+                </div>
+                <div style={{ marginTop: 16 }}>
                   <Typography variant='overline' style={{ fontSize: 24, color: data?.darkMuted, transition: 'all 0.2s ease', lineHeight: 1.5 }}>{'$' + product.price.toFixed(2)}</Typography>
                 </div>
               </CardContent>

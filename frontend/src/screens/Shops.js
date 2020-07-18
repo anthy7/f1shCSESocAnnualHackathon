@@ -6,21 +6,18 @@ import { Container, Grid, Typography } from '@material-ui/core'
 import { Window } from '../components'
 import { locations } from '../samples/locations'
 
-export function Shops ({ match }) {
+export function Shops ({ match, setLocal = () => {} }) {
   const name = match.params.name
   const location = locations.find(l => slugify(l.name) === name)
-  console.log('hi', location, locations)
+  setLocal(location.name)
   return (
     <Container>
-      <Typography variant={'h4'}>
-        {location.name.toUpperCase()}
-      </Typography>
       <Grid
-        style={{ maxWidth: 800 }}
+        style={{ maxWidth: 720 }}
         spacing={8}
         container
         direction='row'
-        justify='flex'
+        justify='flex-start'
         alignItems='flex-start'
       >
         {location.shops.map(s => (
