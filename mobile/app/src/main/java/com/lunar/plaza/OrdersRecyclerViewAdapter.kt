@@ -1,10 +1,13 @@
 package com.lunar.plaza
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.order_entry.view.*
 
 class OrdersRecyclerViewAdapter(private val dataset: Array<String>) :
     RecyclerView.Adapter<OrdersRecyclerViewAdapter.ViewHolder>() {
@@ -14,7 +17,7 @@ class OrdersRecyclerViewAdapter(private val dataset: Array<String>) :
     // you provide access to all the views for a data item in a view holder.
     // Each data item is just a string in this case that is shown in a TextView.
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        var titleView : TextView = view.findViewById(R.id.order_title)
+        var titleView : TextView = view.findViewById(R.id.item_name)
     }
 
 
@@ -25,7 +28,17 @@ class OrdersRecyclerViewAdapter(private val dataset: Array<String>) :
         val view: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.order_entry, parent, false) as View
         // set the view's size, margins, paddings and layout parameters
-        // TODO
+        view.readyButton.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                if (view.readyButton.text == "MARK READY") {
+                    view.readyButton.text = "UNDO READY"
+                    view.readyButton.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#808080"));
+                } else {
+                    view.readyButton.text = "MARK READY"
+                    view.readyButton.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#F68957"));
+                }
+            }
+        })
         return ViewHolder(view)
     }
 

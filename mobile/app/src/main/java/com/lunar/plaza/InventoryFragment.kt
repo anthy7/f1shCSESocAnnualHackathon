@@ -24,7 +24,7 @@ class InventoryFragment : Fragment () {
         activity?.setTitle("Inventory")
 
         viewManager = LinearLayoutManager(this.context)
-        viewAdapter = InventoryRecyclerViewAdapter(arrayOf("Item #1", "Item #2"))
+        viewAdapter = InventoryRecyclerViewAdapter(arrayOf("Nancy the Shark", "A DIFFERENT Shark"))
 
         recyclerView = ordersList.apply {
             // use a linear layout manager
