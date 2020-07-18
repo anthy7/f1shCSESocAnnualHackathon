@@ -4,11 +4,13 @@ import { Container, Grid } from '@material-ui/core'
 import { Product } from '../components'
 import { shops } from '../samples/shops'
 
-export function Shop ({ shop, match, location }) {
+export function Shop ({ match }) {
   const name = match.params.name
+  const shop = shops.find(s => s.name.toLowerCase() === name)
+  console.log('hi', shop, match)
   return (
     <Container style={{ background: '#f0f0f0' }}>
-      <Grid
+      {shop ? <Grid
         style={{ maxWidth: 800 }}
         spacing={2}
         container
@@ -23,7 +25,7 @@ export function Shop ({ shop, match, location }) {
             <Product product={p} />
           </Grid>
         ))}
-      </Grid>
+      </Grid> : '404'}
     </Container>
   )
 }

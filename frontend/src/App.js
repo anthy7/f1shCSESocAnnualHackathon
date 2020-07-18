@@ -6,34 +6,6 @@ import Header from './components/Header'
 
 import { shops } from './samples/shops'
 
-const users = [
-  {
-    name: 'Param'
-  },
-  {
-    name: 'Vennila'
-  },
-  {
-    name: 'Afrin'
-  }
-]
-
-const UserPage = ({ match, location }) => {
-  const { params: { name } } = match
-
-  return (
-    <>
-      <p>
-        <strong>User ID: </strong>
-        {name}
-      </p>
-      <p>
-        <strong>User Name: </strong>
-      </p>
-    </>
-  )
-}
-
 function App () {
   const shopUrls = []
   for (let i = 0; i < shops.length; i++) {
@@ -67,18 +39,5 @@ function App () {
     </Router>
   )
 }
-
-// // when the url matches `/tacos` this component renders
-// const Tacos  = ({ match }) => (
-//   // here's a nested div
-//   <div>
-//       {/* here's a nested Route,
-//           match.url helps us make a relative path */}
-//       <Route
-//       path={match.url + '/carnitas'}
-//       component={Carnitas}
-//       />
-//   </div>
-// )
 
 export default App
