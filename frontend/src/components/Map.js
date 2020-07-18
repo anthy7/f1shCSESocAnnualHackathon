@@ -4,13 +4,13 @@ import ReactMapGL, { Marker } from 'react-map-gl'
 import AddLocationRoundedIcon from '@material-ui/icons/AddLocationRounded'
 
 const token = 'pk.eyJ1IjoibWFyY3VzbG8iLCJhIjoiY2tjaGRvYnJxMGxnYzJ4bGl3N3dndm13NCJ9.dtmAg8NbFDHLSAXwlqmCXg'
-function Map ({ locations = [] }) {
+export function Map ({ locations = [] }) {
   const [viewport, setViewport] = useState({
     width: 800,
     height: 800,
-    latitude: -34.01309,
-    longitude: 151.02298,
-    zoom: 14
+    latitude: -33.84760,
+    longitude: 151.18646,
+    zoom: 12
   })
 
   return (
@@ -28,5 +28,3 @@ function Map ({ locations = [] }) {
     </ReactMapGL>
   )
 }
-
-export default Map
