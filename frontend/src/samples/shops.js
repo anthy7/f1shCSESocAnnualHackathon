@@ -27,5 +27,5 @@ const shop2 = {
 }
 
 export const shops = [
-  shop1, shop2
+  shop1, shop2, shop1, shop2, shop1, shop2, shop1, shop2
 ]
