@@ -26,20 +26,24 @@ const shop1 = {
   products: [
     {
       name: 'Bath Salt',
-      image: bath1
+      image: bath1,
+      price: 6
     },
     {
       name: 'Bath Tea',
-      image: bath2
+      image: bath2,
+      price: 8
     },
     {
       name: 'Pink Bar',
-      image: bath3
+      image: bath3,
+      price: 7
     },
     {
       name: 'Soap',
-      image: bath4
-    },
+      image: bath4,
+      price: 7
+    }
   ]
 }
 const shop2 = {
@@ -47,19 +51,23 @@ const shop2 = {
   products: [
     {
       name: 'Magenta Flowers',
-      image: florist1
+      image: florist1,
+      price: 29
     },
     {
       name: 'Orange Flowers',
-      image: florist2
+      image: florist2,
+      price: 28
     },
     {
       name: 'Pink Flowers',
-      image: florist3
+      image: florist3,
+      price: 27
     },
     {
       name: 'Sunflowers',
-      image: florist4
+      image: florist4,
+      price: 20
     }
   ]
 }
@@ -68,20 +76,24 @@ const shop3 = {
   products: [
     {
       name: 'Blue Cup',
-      image: pottery1
+      image: pottery1,
+      price: 20
     },
     {
       name: 'Purple Pot',
-      image: pottery2
+      image: pottery2,
+      price: 20
     },
     {
       name: 'White Pot',
-      image: pottery3
+      image: pottery3,
+      price: 20
     },
     {
       name: 'Yellow Pot',
-      image: pottery4
-    },
+      image: pottery4,
+      price: 20
+    }
   ]
 }
 const shop4 = {
@@ -89,27 +101,33 @@ const shop4 = {
   products: [
     {
       name: 'Brown Teddy Bear',
-      image: toys1
+      image: toys1,
+      price: 15
     },
     {
       name: 'Bunny',
-      image: toys2
+      image: toys2,
+      price: 17
     },
     {
       name: 'Giraffe',
-      image: toys3
+      image: toys3,
+      price: 12
     },
     {
       name: 'Graduation Bear',
       image: toys4
+      price: 18
     },
     {
       name: 'Koala Bear',
-      image: toys5
+      image: toys5,
+      price: 19
     },
     {
       name: 'Owl',
-      image: toys6
+      image: toys6,
+      price: 16
     }
   ]
 }
