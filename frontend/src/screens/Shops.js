@@ -1,11 +1,10 @@
-import React from 'react';
-import { Container, Grid, Paper } from '@material-ui/core';
+import React from 'react'
+import { Container, Grid, Paper } from '@material-ui/core'
 
 import { Window } from '../components'
 import { shops } from '../samples/shops'
 
-export function Shops() {
-
+export function Shops () {
   return (
     <Container style={{ background: '#f0f0f0' }}>
       <Grid
@@ -23,6 +22,5 @@ export function Shops() {
         ))}
       </Grid>
     </Container>
-  );
+  )
 }
-
