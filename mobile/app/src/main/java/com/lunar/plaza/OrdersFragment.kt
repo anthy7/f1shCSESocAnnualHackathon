@@ -21,6 +21,7 @@ class OrdersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.setTitle("Orders")
 
         viewManager = LinearLayoutManager(this.context)
         viewAdapter = OrdersRecyclerViewAdapter(arrayOf("Order #273", "Order #991"))
