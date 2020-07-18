@@ -9,7 +9,8 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
-import kotlinx.android.synthetic.main.activity_main.*
+import android.view.View
+import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -30,6 +31,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navView.setNavigationItemSelectedListener(this)
 
         displayFragment(-1)
+
+        val fab: View = add_fab
+        fab.setOnClickListener {
+            displayFragment(1)
+        }
     }
     override fun onBackPressed() {
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
@@ -63,12 +69,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     fun displayFragment(id: Int) {
+        if(id == R.id.nav_inventory) {
+            add_fab.setVisibility(View.VISIBLE)
+        }
+        else {
+            add_fab.setVisibility(View.GONE)
+        }
         val fragment = when (id) {
             R.id.nav_orders -> {
                 OrdersFragment()
             }
             R.id.nav_inventory -> {
                 InventoryFragment()
+            }
+            1 -> {
+                editItemFragment()
             }
             else -> {
                 OrdersFragment()

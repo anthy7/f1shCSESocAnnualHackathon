@@ -5,44 +5,44 @@
               android:layout_height="wrap_content"
 >
 
+<LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:layout_weight="1" android:paddingBottom="6dp"
+        android:paddingStart="15dp" android:paddingEnd="15dp" android:paddingTop="6dp">
     <LinearLayout
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_weight="1" android:paddingBottom="6dp"
-            android:paddingStart="15dp" android:paddingEnd="15dp" android:paddingTop="6dp">
-        <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" android:layout_weight="1" android:layout_marginBottom="8dp">
-            <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" app:srcCompat="@drawable/ic_check_circle_black_24dp"
-                    android:id="@+id/imageView2" android:layout_weight="0" android:paddingEnd="8dp"/>
-            <TextView
-                    android:text="Order #276"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/order_title" android:layout_weight="1"
-                    android:textSize="20sp"/>
-        </LinearLayout>
+            android:layout_height="match_parent" android:layout_weight="1" android:layout_marginBottom="8dp">
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" app:srcCompat="@drawable/ic_check_circle_black_24dp"
+                android:id="@+id/imageView2" android:layout_weight="0" android:paddingEnd="8dp"/>
         <TextView
-                android:text="- Special Blue Soap"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView4" android:layout_weight="1"/>
-        <TextView
-                android:text="- Dragonfruit Swirl"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView5" android:layout_weight="1"/>
-        <Button
-                android:text="VIEW DETAILS"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/button" android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary" android:textColor="#ffffff"
-                android:layout_marginTop="8dp"/>
-        <View
-                android:id="@+id/divider2"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#DBDBDB"
-                android:layout_weight="1" android:layout_marginTop="8dp"/>
+                android:text="Order #276"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/order_title" android:layout_weight="1"
+                android:textSize="20sp"/>
     </LinearLayout>
+    <TextView
+            android:text="- Special Blue Soap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/order_item1" android:layout_weight="1"/>
+    <TextView
+            android:text="- Dragonfruit Swirl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/order_item2" android:layout_weight="1"/>
+    <Button
+            android:text="VIEW DETAILS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/button" android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary" android:textColor="#ffffff"
+            android:layout_marginTop="8dp"/>
+    <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DBDBDB"
+            android:layout_weight="1" android:layout_marginTop="8dp"/>
+</LinearLayout>
 </LinearLayout>
