@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         navView.setNavigationItemSelectedListener(this)
+
+        displayFragment(-1)
     }
     override fun onBackPressed() {
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
@@ -60,28 +62,27 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
-        when (item.itemId) {
-            R.id.nav_home -> {
-                // Handle the camera action
-            }
-            R.id.nav_gallery -> {
-
-            }
-            R.id.nav_slideshow -> {
-
-            }
-            R.id.nav_tools -> {
-
-            }
-            R.id.nav_share -> {
-
-            }
-            R.id.nav_send -> {
-
-            }
-        }
+        displayFragment(item.itemId)
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    fun displayFragment(id: Int) {
+        val fragment = when (id) {
+            R.id.nav_orders -> {
+                OrdersFragment()
+            }
+            R.id.nav_inventory -> {
+                InventoryFragment()
+            }
+            else -> {
+                OrdersFragment()
+            }
+        }
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.constraintLayout, fragment)
+            .commit()
     }
 }
