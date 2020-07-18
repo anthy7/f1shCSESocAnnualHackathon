@@ -17,6 +17,10 @@ class OrdersFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.orders_fragment, null)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         viewManager = LinearLayoutManager(this.context)
         viewAdapter = OrdersRecyclerViewAdapter(arrayOf("Order #273", "Order #991"))
