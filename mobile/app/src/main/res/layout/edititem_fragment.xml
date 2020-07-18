@@ -9,11 +9,12 @@
             android:text="Product"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/textView5" android:textSize="30sp"/>
-    <ImageView android:layout_width="match_parent" android:layout_height="145dp"/>
+    <ImageView android:layout_width="match_parent" android:layout_height="217dp" android:id="@+id/productImage"
+               />
     <Button
             android:text="Scan Product"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/button4"/>
+            android:layout_height="wrap_content" android:id="@+id/scan_button"/>
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"

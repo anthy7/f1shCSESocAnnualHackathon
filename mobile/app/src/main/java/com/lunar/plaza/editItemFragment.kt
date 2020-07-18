@@ -9,8 +9,12 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.SeekBar
 import androidx.fragment.app.Fragment
+import com.google.mlkit.vision.common.InputImage
+import com.google.mlkit.vision.text.Text
+import com.google.mlkit.vision.text.TextRecognition
 import kotlinx.android.synthetic.main.edititem_fragment.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 
@@ -36,11 +40,15 @@ class editItemFragment : Fragment () {
             }
         }
         )
+
+        val scanButton: Button = scan_button
+
+        scanButton.setOnClickListener{
+            dispatchTakePictureIntent()
+        }
     }
 
     val REQUEST_IMAGE_CAPTURE = 1
-
-    val Fragment.packageManager get() = activity?.packageManager
 
     private fun dispatchTakePictureIntent() {
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
@@ -55,8 +63,41 @@ class editItemFragment : Fragment () {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             val imageBitmap = data?.extras?.get("data") as Bitmap
-            imageView.setImageBitmap(imageBitmap)
+            productImage.setImageBitmap(imageBitmap)
+            scanImage(imageBitmap)
         }
     }
 
+    fun scanImage(bitmap: Bitmap) {
+        val image = InputImage.fromBitmap(bitmap, 0)
+        val recognizer = TextRecognition.getClient()
+        val result = recognizer.process(image)
+            .addOnSuccessListener { visionText ->
+                displayText(visionText)
+            }
+            .addOnFailureListener { e ->
+                // Task failed with an exception
+                // ...
+            }
+    }
+
+    fun displayText(result: Text) {
+        val resultText = result.text
+        for (block in result.textBlocks) {
+            val blockText = block.text
+            val blockCornerPoints = block.cornerPoints
+            val blockFrame = block.boundingBox
+            for (line in block.lines) {
+                val lineText = line.text
+                val lineCornerPoints = line.cornerPoints
+                val lineFrame = line.boundingBox
+                for (element in line.elements) {
+                    val elementText = element.text
+                    val elementCornerPoints = element.cornerPoints
+                    val elementFrame = element.boundingBox
+                }
+            }
+        }
+        newproduct_name.setText(resultText)
+    }
 }
