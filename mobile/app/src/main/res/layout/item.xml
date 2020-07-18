@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+>
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_weight="1" android:paddingBottom="6dp"
+            android:paddingStart="15dp" android:paddingEnd="15dp" android:paddingTop="6dp">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_weight="1" android:layout_marginBottom="8dp">
+            <TextView
+                    android:text="Apples"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/item_name" android:layout_weight="1"
+                    android:textSize="20sp"/>
+        </LinearLayout>
+        <TextView
+                android:text="Red apples freshly picked from the farm."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/item_description" android:layout_weight="1"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_weight="1">
+            <TextView
+                    android:text="Quantity:"
+                    android:layout_width="91dp"
+                    android:layout_height="wrap_content" android:id="@+id/textView4" android:layout_weight="1"
+                    android:textSize="18sp"/>
+            <TextView
+                    android:text="50"
+                    android:layout_width="158dp"
+                    android:layout_height="wrap_content" android:id="@+id/item_quantity" android:layout_weight="1"
+                    android:textSize="18sp"/>
+            <TextView
+                    android:text="$1.20"
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content" android:id="@+id/item_price" android:layout_weight="1"
+                    android:textSize="24sp"
+                    android:gravity="right"
+                    android:paddingRight="16dp"/>
+        </LinearLayout>
+        <Button
+                android:text="EDIT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/button" android:layout_weight="1"
+                android:backgroundTint="@color/colorPrimary" android:textColor="#ffffff"
+                android:layout_marginTop="8dp"/>
+        <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DBDBDB"
+                android:layout_weight="1" android:layout_marginTop="8dp"/>
+    </LinearLayout>
+</LinearLayout>
