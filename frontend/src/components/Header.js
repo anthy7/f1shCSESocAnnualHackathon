@@ -5,6 +5,7 @@ import bgImage from '../images/bg1.jpg'
 import { Avatar, Box, Button, Card, Dialog, List, ListItem, ListItemText, IconButton, Typography, InputBase, Badge, ListItemAvatar } from '@material-ui/core'
 import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded'
 import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded'
+import logo from '../images/plazaLogo.png'
 
 const Header = ({ history, match, cart = [], local }) => {
   const [open, setOpen] = useState(false)
@@ -13,9 +14,20 @@ const Header = ({ history, match, cart = [], local }) => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: 32 }}>
-      <Link to='/' style={{ textDecoration: 'none' }}>
-        <Typography variant='overline' style={{ fontSize: 40, color: 'black' }}>Plaza {local ? '| ' + local : null}</Typography>
+      <img
+        src={logo}
+        style={{
+          maxWidth: 50,
+          maxHeight: 50,
+          position: 'relative',
+          padding: -2,
+          margin: -2
+        }}
+      />
+      <Link to='/' style={{ textDecoration: 'none', marginTop: -30 }}>
+        <Typography variant='overline' style={{ fontSize: 40, color: 'black', marginTop: -5, padding: 0 }}>Plaza {local ? '| ' + local : null}</Typography>
       </Link>
+
       <div style={{ display: 'flex' }}>
         <div style={{ marginTop: 4 }}>
           <IconButton onClick={() => history.goBack()}>
@@ -30,9 +42,11 @@ const Header = ({ history, match, cart = [], local }) => {
           backgroundColor: 'rgba(0, 0 ,0, 0.1)',
           marginRight: 8,
           marginLeft: 8,
+          marginTop: 0,
           width: 600,
           padding: 12
-        }}>
+        }}
+        >
           <InputBase
             style={{ width: '100%' }}
             placeholder='Search…'
@@ -50,23 +64,23 @@ const Header = ({ history, match, cart = [], local }) => {
         <Card style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
           <div style={{ background: 'rgb(255, 255, 255, 0.9)', padding: 16, minHeight: 300, display: 'flex', flexDirection: 'column' }}>
             <div>
-              <Typography variant={'overline'} style={{ fontSize: 16, textAlign: 'center', paddingTop: 16 }}>Your Shopping Cart</Typography>
+              <Typography variant='overline' style={{ fontSize: 16, textAlign: 'center', paddingTop: 16 }}>Your Shopping Cart</Typography>
             </div>
             {cart.length ? (<>
-            <List style={{ flexGrow: 1 }}>
-              {cart.map((product) => (
-                <ListItem button key={product}>
-                  <ListItemAvatar>
-                    <Avatar src={product.image} />
-                  </ListItemAvatar>
-                  <ListItemText primary={product.name + ' x ' + product.number} />
-                </ListItem>
-              ))}
-            </List>
+              <List style={{ flexGrow: 1 }}>
+                {cart.map((product) => (
+                  <ListItem button key={product}>
+                    <ListItemAvatar>
+                      <Avatar src={product.image} />
+                    </ListItemAvatar>
+                    <ListItemText primary={product.name + ' x ' + product.number} />
+                  </ListItem>
+                ))}
+              </List>
               <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end' }}>
                 <Button variant='outlined'>
                   Order Now
-            </Button>
+                </Button>
               </Box>
             </>)
               : <Typography variant='overline' style={{ fontSize: 12 }}>
