@@ -38,7 +38,7 @@ class editItemFragment : Fragment () {
             (activity as MainActivity).displayFragment(R.id.nav_inventory)
         }
 
-        val addButton: Button = back_button
+        val addButton: Button = add_button
         addButton.setOnClickListener{
             (activity as MainActivity).displayFragment(R.id.nav_inventory)
         }
