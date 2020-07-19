@@ -20,6 +20,7 @@ import toys3 from '../images/toys/giraffe.png'
 import toys4 from '../images/toys/grad_teddy.png'
 import toys5 from '../images/toys/koala.png'
 import toys6 from '../images/toys/owl.png'
+import toys7 from '../images/toys/shark.png'
 
 import honey1 from '../images/honey/honey.png'
 import honey2 from '../images/honey/honeygel.png'
@@ -231,6 +232,12 @@ const shop4 = {
       name: 'Owl',
       image: toys6,
       description: 'Ted\'s unusually long bear',
+      price: 16
+    },
+    {
+      name: 'Shark',
+      image: toys7,
+      description: 'Ted\'s baby shark do do do',
       price: 16
     }
   ],
