@@ -12,13 +12,16 @@ function App () {
     newProduct['number'] = num
     setShoppingCart([...shoppingCart, newProduct])
   }
+  const emptyCart = () => {
+    setShoppingCart([])
+  }
   const LandingPage = ({ ...props }) => <Landing setLocal={setLocal} {...props} />
   const ShopPage = ({ ...props }) => <Shop cart={shoppingCart} local={local} addToCart={addToCart} {...props} />
   const ShopsPage = ({ ...props }) => <Shops cart={shoppingCart} setLocal={setLocal} {...props} />
   
   return (
     <Router>
-      <Header cart={shoppingCart} local={local} />
+      <Header cart={shoppingCart} local={local} emptyCart={emptyCart} />
       <Switch>
         <Route exact path='/' component={LandingPage}/>
         <Route exact path='/shop/:name' component={ShopPage} />
