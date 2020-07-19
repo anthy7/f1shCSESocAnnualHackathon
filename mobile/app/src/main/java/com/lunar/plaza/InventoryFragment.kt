@@ -24,7 +24,7 @@ class InventoryFragment : Fragment () {
         activity?.setTitle("Inventory")
 
         viewManager = LinearLayoutManager(this.context)
-        viewAdapter = InventoryRecyclerViewAdapter(arrayOf("Brown Teddy Bear", "Bunny", "Giraffe", "Graduation Bear", "Koala Bear", "Owl"), arrayOf(R.mipmap.brown_teddy, R.mipmap.bunny, R.mipmap.giraffe, R.mipmap.grad_teddy, R.mipmap.koala, R.mipmap.owl), arrayOf("\$15.00", "\$17.50", "\$12.50", "\$18.00", "\$19.00", "\$16.00"))
+        viewAdapter = InventoryRecyclerViewAdapter(arrayOf("Brown Teddy Bear", "Bunny", "Giraffe", "Graduation Bear", "Koala Bear", "Owl", "Shark Plushie"), arrayOf(R.mipmap.brown_teddy, R.mipmap.bunny, R.mipmap.giraffe, R.mipmap.grad_teddy, R.mipmap.koala, R.mipmap.owl, R.mipmap.shark), arrayOf("\$15.00", "\$17.50", "\$12.50", "\$18.00", "\$19.00", "\$16.00", "$32.50"))
 
         recyclerView = ordersList.apply {
             // use a linear layout manager

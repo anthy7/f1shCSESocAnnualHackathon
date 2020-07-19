@@ -11,13 +11,14 @@
             android:layout_height="38dp">
         <TextView
                 android:text="PRODUCT"
-                android:layout_width="330dp"
+                android:layout_width="315dp"
                 android:layout_height="wrap_content" android:id="@+id/textView5" android:textSize="20sp"
                 android:textStyle="bold"/>
         <Button
-                android:text="x"
+                android:text='x'
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/back_button" android:layout_weight="1"/>
+                android:layout_height="wrap_content" android:id="@+id/back_button"
+                android:layout_marginEnd="0dp"/>
     </LinearLayout>
     <ImageView android:layout_width="match_parent" android:layout_height="217dp" android:id="@+id/productImage"
                android:background="#E7E7E7" android:layout_margin="16dp"
