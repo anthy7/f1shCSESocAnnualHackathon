@@ -11,7 +11,7 @@ import { shops } from '../samples/shops'
 const Left = styled.div(() => ({
   position: 'absolute',
   left: -240,
-  top: 400,
+  top: 408,
   zIndex: 4,
   transition: 'all 1s ease',
   '&:hover': {
@@ -22,7 +22,7 @@ const Left = styled.div(() => ({
 const Right = styled.div(() => ({
   position: 'absolute',
   right: -240,
-  top: 400,
+  top: 408,
   zIndex: 4,
   transition: 'all 1s ease',
   '&:hover': {
