@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import { withRouter, BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
 import bgImage from '../images/bg1.jpg'
-import { Avatar, Card, Dialog, DialogTitle, List, ListItem, ListItemText, IconButton, Typography, InputBase, Badge, ListItemAvatar } from '@material-ui/core'
+import { Avatar, Box, Button, Card, Dialog, List, ListItem, ListItemText, IconButton, Typography, InputBase, Badge, ListItemAvatar } from '@material-ui/core'
 import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded'
 import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded'
 
 const Header = ({ history, match, cart = [], local }) => {
   const [open, setOpen] = useState(false)
+  console.log('hello', cart)
+  const items = cart.reduce((a, b) => a + (b?.number || 0), 0)
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: 32 }}>
@@ -38,7 +40,7 @@ const Header = ({ history, match, cart = [], local }) => {
         </div>
         <div style={{ marginTop: 4 }}>
           <IconButton onClick={() => setOpen(true)}>
-            <Badge badgeContent={cart.length} color='primary'>
+            <Badge badgeContent={items} color='primary'>
               <ShoppingCartRoundedIcon />
             </Badge>
           </IconButton>
@@ -46,20 +48,27 @@ const Header = ({ history, match, cart = [], local }) => {
       </div>
       <Dialog onClose={() => setOpen(false)} open={open}>
         <Card style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
-          <div style={{ background: 'rgb(255, 255, 255, 0.9)', padding: 16, minHeight: 300 }}>
+          <div style={{ background: 'rgb(255, 255, 255, 0.9)', padding: 16, minHeight: 300, display: 'flex', flexDirection: 'column' }}>
             <div>
               <Typography variant={'overline'} style={{ fontSize: 16, textAlign: 'center', paddingTop: 16 }}>Your Shopping Cart</Typography>
             </div>
-            {cart.length ? <List>
+            {cart.length ? (<>
+            <List style={{ flexGrow: 1 }}>
               {cart.map((product) => (
                 <ListItem button key={product}>
                   <ListItemAvatar>
                     <Avatar src={product.image} />
                   </ListItemAvatar>
-                  <ListItemText primary={product.name} />
+                  <ListItemText primary={product.name + ' x ' + product.number} />
                 </ListItem>
               ))}
             </List>
+              <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end' }}>
+                <Button variant='outlined'>
+                  Order Now
+            </Button>
+              </Box>
+            </>)
               : <Typography variant='overline' style={{ fontSize: 12 }}>
                 You have not added any items yet.
               </Typography>}

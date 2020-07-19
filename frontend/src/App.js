@@ -7,8 +7,10 @@ import Header from './components/Header'
 function App () {
   const [shoppingCart, setShoppingCart] = useState([])
   const [local, setLocal] = useState()
-  const addToCart = (product) => {
-    setShoppingCart([...shoppingCart, product])
+  const addToCart = (product, num) => {
+    let newProduct = product
+    newProduct['number'] = num
+    setShoppingCart([...shoppingCart, newProduct])
   }
   const LandingPage = ({ ...props }) => <Landing setLocal={setLocal} {...props} />
   const ShopPage = ({ ...props }) => <Shop cart={shoppingCart} local={local} addToCart={addToCart} {...props} />

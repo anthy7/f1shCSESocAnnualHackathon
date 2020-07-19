@@ -2,16 +2,28 @@ import React, { useState } from 'react'
 import { Palette } from 'react-palette'
 import { Card, CardActionArea, CardContent, IconButton, Dialog, Typography } from '@material-ui/core'
 import HighlightOffRoundedIcon from '@material-ui/icons/HighlightOffRounded'
+import AddCircleRoundedIcon from '@material-ui/icons/AddCircleRounded'
+import RemoveCircleRoundedIcon from '@material-ui/icons/RemoveCircleRounded'
 import AddShoppingCartRoundedIcon from '@material-ui/icons/AddShoppingCartRounded'
 
 export function Product({ product, cart, addToCart = () => {} }) {
   const shadow = '0 41.8px 33.4px rgba(0, 0, 0, 0.086)'
   const [open, setOpen] = useState(false)
+  const [num, setNum] = useState(0)
+
+  const handleAddNum = () => {
+    setNum(num + 1)
+  }
+
+  const handleSubtractNum = () => {
+    if (num !== 0) setNum(num - 1)
+  }
+
   const handleClose = () => {
     setOpen(false)
   }
   const handleAddShopping = () => {
-    addToCart(product)
+    if (num !== 0) addToCart(product, num)
   }
   return (
     <Palette src={product.image}>
@@ -44,9 +56,20 @@ export function Product({ product, cart, addToCart = () => {} }) {
                   <Typography variant='overline' style={{ fontSize: 24, color: data?.darkMuted, transition: 'all 0.2s ease', lineHeight: 1.5 }}>{'$' + product.price.toFixed(2)}</Typography>
                 </div>
               </CardContent>
-              <IconButton style={{ position: 'absolute', bottom: 4, right: 4 }} onClick={handleAddShopping}>
-                <AddShoppingCartRoundedIcon />
-              </IconButton>
+              <div style={{ position: 'absolute', bottom: 4, right: 4 }} >
+                <IconButton onClick={handleSubtractNum}>
+                  <RemoveCircleRoundedIcon />
+                </IconButton>
+                <Typography variant='overline' style={{ color: data?.darkMuted, fontWeight: 700 }} >
+                  {num}
+                </Typography>
+                <IconButton onClick={handleAddNum}>
+                  <AddCircleRoundedIcon />
+                </IconButton>
+                <IconButton disabled={!num} onClick={handleAddShopping}>
+                  <AddShoppingCartRoundedIcon />
+                </IconButton>
+              </div>
               <div style={{ position: 'absolute', bottom: -8, paddingLeft: 8 }}>
                 <img src={product.image} style={{ maxHeight: 120, maxWidth: 120 }} />
               </div>
