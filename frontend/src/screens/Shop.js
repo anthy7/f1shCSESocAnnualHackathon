@@ -11,7 +11,7 @@ import { shops } from '../samples/shops'
 const Left = styled.div(() => ({
   position: 'absolute',
   left: -240,
-  top: 400,
+  top: 408,
   zIndex: 4,
   transition: 'all 1s ease',
   '&:hover': {
@@ -22,7 +22,7 @@ const Left = styled.div(() => ({
 const Right = styled.div(() => ({
   position: 'absolute',
   right: -240,
-  top: 400,
+  top: 408,
   zIndex: 4,
   transition: 'all 1s ease',
   '&:hover': {
@@ -42,10 +42,15 @@ export function Shop({ match, cart, local = '', addToCart = () => { } }) {
         <Container>
           <Box style={{ display: 'flex', justifyContent: 'center' }}>
             {shop &&
-              <div>
-                <Typography variant='overline' style={{ fontSize: 32 }}>{shop.name}</Typography>
+              <div style={{ maxWidth: 648 }}>
+                <div>
+                  <Typography variant='overline' style={{ fontSize: 32 }}>{shop.name}</Typography>
+                </div>
+                <div style={{marginBottom: 40}}>
+                  <Typography variant='overline' style={{ fontSize: 12 }}>{shop.description}</Typography>
+                </div>
                 <Grid
-                  style={{ maxWidth: 720 }}
+                  style={{ maxWidth: 648 }}
                   spacing={2}
                   container
                   direction='row'

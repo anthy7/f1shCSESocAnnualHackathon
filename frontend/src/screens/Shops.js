@@ -14,7 +14,7 @@ export function Shops ({ match, setLocal = () => {} }) {
     <Container>
       <Box style={{ display: 'flex', justifyContent: 'center' }}>
       <Grid
-        style={{ maxWidth: 800 }}
+        style={{ maxWidth: 792 }}
         spacing={8}
         container
         direction='row'
