@@ -2,17 +2,28 @@ import React, { useState } from 'react'
 import { withRouter, BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
 import bgImage from '../images/bg1.jpg'
-import { Avatar, Box, Button, Card, Dialog, List, ListItem, ListItemText, IconButton, Typography, InputBase, Badge, ListItemAvatar } from '@material-ui/core'
+import { Avatar, Box, Button, Card, Dialog, TableBody, TableContainer, Table, TableHead, TableRow, TableCell, List, ListItem, ListItemText, IconButton, Typography, InputBase, Badge, ListItemAvatar } from '@material-ui/core'
 import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded'
 import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded'
+import CheckCircleTwoToneIcon from '@material-ui/icons/CheckCircleTwoTone'
 
-const Header = ({ history, match, cart = [], local }) => {
+const Header = ({ history, match, cart = [], local, emptyCart = () => {} }) => {
   const [open, setOpen] = useState(false)
-  console.log('hello', cart)
+  const [finishOrder, setFinishOrder] = useState(false)
   const items = cart.reduce((a, b) => a + (b?.number || 0), 0)
+  const total = cart.reduce((a, b) => a + (b?.price * b?.number || 0), 0)
+
+
+  const handleEmpty = () => {
+    emptyCart()
+    const timer = setTimeout(() => {
+      setFinishOrder(false)
+    }, 2000)
+    return () => clearTimeout(timer)
+  }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: 32 }}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 32, marginBottom: 48 }}>
       <Link to='/' style={{ textDecoration: 'none' }}>
         <Typography variant='overline' style={{ fontSize: 40, color: 'black' }}>Plaza {local ? '| ' + local : null}</Typography>
       </Link>
@@ -53,7 +64,28 @@ const Header = ({ history, match, cart = [], local }) => {
               <Typography variant={'overline'} style={{ fontSize: 16, textAlign: 'center', paddingTop: 16 }}>Your Shopping Cart</Typography>
             </div>
             {cart.length ? (<>
-            <List style={{ flexGrow: 1 }}>
+              <TableContainer style={{ flexGrow: 1 }}>
+                <Table aria-label='simple table'>
+                  <TableBody>
+                    {cart.map((item) => (
+                      <TableRow key={item}>
+                        <TableCell component='th' scope='row'>
+                          <Avatar src={item.image} />
+                        </TableCell>
+                        <TableCell>{item.name} x {item.number}</TableCell>
+                        <TableCell align='right'>${item.price.toFixed(2)}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+                <Typography variant='overline' style={{ lineHeight: 1, paddingTop: 8, padding: 8 }}>
+                  Your total comes down to
+                </Typography>
+                <Typography variant='overline' style={{ fontSize: 24, lineHeight: 1, padding: 8, paddingBottom: 16 }}>
+                  ${total.toFixed(2)}
+                </Typography>
+            {/* <List style={{ flexGrow: 1 }}>
               {cart.map((product) => (
                 <ListItem button key={product}>
                   <ListItemAvatar>
@@ -62,16 +94,32 @@ const Header = ({ history, match, cart = [], local }) => {
                   <ListItemText primary={product.name + ' x ' + product.number} />
                 </ListItem>
               ))}
-            </List>
-              <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end' }}>
-                <Button variant='outlined'>
+            </List> */}
+              <Box style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-end' }}>
+                <Button variant='outlined' onClick={() => {
+                  setOpen(false)
+                  setFinishOrder(true)
+                  handleEmpty()
+                }}>
                   Order Now
-            </Button>
+                </Button>
               </Box>
             </>)
               : <Typography variant='overline' style={{ fontSize: 12 }}>
                 You have not added any items yet.
               </Typography>}
+          </div>
+        </Card>
+      </Dialog>
+      <Dialog onClose={() => {
+        setFinishOrder(false)
+      }} open={finishOrder}>
+        <Card style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
+          <div style={{ background: 'rgb(255, 255, 255, 0.9)', padding: 16, display: 'flex', flexDirection: 'column' }}>
+            <Box style={{ display: 'flex', alignItems: 'center' }}>
+              <Typography variant={'overline'} style={{ fontSize: 16, textAlign: 'center' }}>Your order has been placed</Typography>
+              <CheckCircleTwoToneIcon style={{ paddingLeft: 16, color: 'green' }} />
+            </Box>
           </div>
         </Card>
       </Dialog>
