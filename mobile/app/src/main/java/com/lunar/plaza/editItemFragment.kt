@@ -26,25 +26,21 @@ class editItemFragment : Fragment () {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val seek: SeekBar = seekBar
-        seek.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
-                // Display the current progress of SeekBar
-                newproduct_cost.text = "$$i.00"
-            }
-
-            override fun onStartTrackingTouch(seekBar: SeekBar) {
-            }
-
-            override fun onStopTrackingTouch(seekBar: SeekBar) {
-            }
-        }
-        )
 
         val scanButton: Button = scan_button
 
         scanButton.setOnClickListener{
             dispatchTakePictureIntent()
+        }
+
+        val backButton: Button = back_button
+        backButton.setOnClickListener{
+            (activity as MainActivity).displayFragment(R.id.nav_inventory)
+        }
+
+        val addButton: Button = back_button
+        addButton.setOnClickListener{
+            (activity as MainActivity).displayFragment(R.id.nav_inventory)
         }
     }
 
@@ -87,6 +83,7 @@ class editItemFragment : Fragment () {
             val blockText = block.text
             val blockCornerPoints = block.cornerPoints
             val blockFrame = block.boundingBox
+            var i = 0;
             for (line in block.lines) {
                 val lineText = line.text
                 val lineCornerPoints = line.cornerPoints
@@ -96,8 +93,17 @@ class editItemFragment : Fragment () {
                     val elementCornerPoints = element.cornerPoints
                     val elementFrame = element.boundingBox
                 }
+                if(i == 0) {
+                    newproduct_name.setText(lineText)
+                }
+                if(i == 1) {
+                    newproduct_description.setText(lineText)
+                }
+                if(i == 2) {
+                    newproduct_cost.setText(lineText)
+                }
+                i++
             }
         }
-        newproduct_name.setText(resultText)
     }
 }
