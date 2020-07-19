@@ -14,16 +14,19 @@ const Header = ({ history, match, cart = [], local }) => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: 32 }}>
-      <img
-        src={logo}
-        style={{
-          maxWidth: 50,
-          maxHeight: 50,
-          position: 'relative',
-          padding: -2,
-          margin: -2
-        }}
-      />
+      <a href='/'>
+        <img
+          src={logo}
+          style={{
+            maxWidth: 50,
+            maxHeight: 50,
+            position: 'relative',
+            padding: -2,
+            margin: -2
+          }}
+        />
+      </a>
+
       <Link to='/' style={{ textDecoration: 'none', marginTop: -30 }}>
         <Typography variant='overline' style={{ fontSize: 40, color: 'black', marginTop: -5, padding: 0 }}>Plaza {local ? '| ' + local : null}</Typography>
       </Link>
