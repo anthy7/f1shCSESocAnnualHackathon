@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.action_settings -> true
             R.id.action_refresh -> {
                 names = arrayOf("Order #273", "Order #272", "Order #268", "Order #267")
-                items = arrayOf(arrayOf("Bunny", "Owl", ""), arrayOf("Nancy the Shark", "Bunny", "Owl"), arrayOf("Brown Teddy Bear", "Giraffe", ""), arrayOf("Koala Bear", "Graduation Bear", "Giraffe"))
+                items = arrayOf(arrayOf("Shark Plushie", "Owl", ""), arrayOf("Nancy the Shark", "Bunny", "Owl"), arrayOf("Brown Teddy Bear", "Giraffe", ""), arrayOf("Koala Bear", "Graduation Bear", "Giraffe"))
                 activeOrders = 4
                 totalOrders = 183
                 displayFragment(R.id.nav_orders)
