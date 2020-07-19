@@ -235,7 +235,7 @@ const shop4 = {
       price: 16
     },
     {
-      name: 'Shark',
+      name: 'Shark Plushie',
       image: toys7,
       description: 'Ted\'s baby shark do do do',
       price: 16
