@@ -6,6 +6,7 @@ import { Avatar, Box, Button, Card, Dialog, TableBody, TableContainer, Table, Ta
 import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded'
 import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded'
 import CheckCircleTwoToneIcon from '@material-ui/icons/CheckCircleTwoTone'
+import logo from '../images/plazaLogo.png'
 
 const Header = ({ history, match, cart = [], local, emptyCart = () => {} }) => {
   const [open, setOpen] = useState(false)
@@ -23,10 +24,21 @@ const Header = ({ history, match, cart = [], local, emptyCart = () => {} }) => {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 32, marginBottom: 48 }}>
-      <Link to='/' style={{ textDecoration: 'none' }}>
-        <Typography variant='overline' style={{ fontSize: 40, color: 'black' }}>Plaza {local ? '| ' + local : null}</Typography>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: 32 }}>
+      <Link to='/' style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <img
+          src={logo}
+          style={{
+            maxWidth: 50,
+            maxHeight: 50,
+            position: 'relative',
+            padding: -2,
+            margin: -2
+          }}
+        />
+        <Typography variant='overline' style={{ fontSize: 40, color: 'black', marginTop: -20, padding: 0 }}>Plaza {local ? '| ' + local : null}</Typography>
       </Link>
+
       <div style={{ display: 'flex' }}>
         <div style={{ marginTop: 4 }}>
           <IconButton onClick={() => history.goBack()}>
@@ -41,9 +53,11 @@ const Header = ({ history, match, cart = [], local, emptyCart = () => {} }) => {
           backgroundColor: 'rgba(0, 0 ,0, 0.1)',
           marginRight: 8,
           marginLeft: 8,
+          marginTop: 0,
           width: 600,
           padding: 12
-        }}>
+        }}
+        >
           <InputBase
             style={{ width: '100%' }}
             placeholder='Search…'
@@ -61,7 +75,7 @@ const Header = ({ history, match, cart = [], local, emptyCart = () => {} }) => {
         <Card style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
           <div style={{ background: 'rgb(255, 255, 255, 0.9)', padding: 16, minHeight: 300, display: 'flex', flexDirection: 'column' }}>
             <div>
-              <Typography variant={'overline'} style={{ fontSize: 16, textAlign: 'center', paddingTop: 16 }}>Your Shopping Cart</Typography>
+              <Typography variant='overline' style={{ fontSize: 16, textAlign: 'center', paddingTop: 16 }}>Your Shopping Cart</Typography>
             </div>
             {cart.length ? (<>
               <TableContainer style={{ flexGrow: 1 }}>
@@ -85,16 +99,6 @@ const Header = ({ history, match, cart = [], local, emptyCart = () => {} }) => {
                 <Typography variant='overline' style={{ fontSize: 24, lineHeight: 1, padding: 8, paddingBottom: 16 }}>
                   ${total.toFixed(2)}
                 </Typography>
-            {/* <List style={{ flexGrow: 1 }}>
-              {cart.map((product) => (
-                <ListItem button key={product}>
-                  <ListItemAvatar>
-                    <Avatar src={product.image} />
-                  </ListItemAvatar>
-                  <ListItemText primary={product.name + ' x ' + product.number} />
-                </ListItem>
-              ))}
-            </List> */}
               <Box style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-end' }}>
                 <Button variant='outlined' onClick={() => {
                   setOpen(false)

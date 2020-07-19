@@ -14,6 +14,10 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    var names : Array<String> = arrayOf("Order #272", "Order #268", "Order #267")
+    var items : Array<Array<String>> = arrayOf(arrayOf("Nancy the Shark", "Bunny", "Owl"), arrayOf("Brown Teddy Bear", "Giraffe", ""), arrayOf("Koala Bear", "Graduation Bear", "Giraffe"))
+    var activeOrders : Int = 3
+    var totalOrders : Int = 182
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +61,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_settings -> true
+            R.id.action_refresh -> {
+                names = arrayOf("Order #273", "Order #272", "Order #268", "Order #267")
+                items = arrayOf(arrayOf("Bunny", "Owl", ""), arrayOf("Nancy the Shark", "Bunny", "Owl"), arrayOf("Brown Teddy Bear", "Giraffe", ""), arrayOf("Koala Bear", "Graduation Bear", "Giraffe"))
+                activeOrders = 4
+                totalOrders = 183
+                displayFragment(R.id.nav_orders)
+                return true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

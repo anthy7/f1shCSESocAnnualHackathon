@@ -4,13 +4,24 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="vertical" android:id="@+id/linearLayout3">
-    <TextView
-            android:text="Product"
+              android:orientation="vertical" android:id="@+id/linearLayout3" android:padding="16dp">
+    <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/textView5" android:textSize="30sp"/>
+            android:layout_height="38dp">
+        <TextView
+                android:text="PRODUCT"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content" android:id="@+id/textView5" android:textSize="20sp"
+                android:textStyle="bold"/>
+        <Button
+                android:text="x"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/back_button" android:layout_weight="1"/>
+    </LinearLayout>
     <ImageView android:layout_width="match_parent" android:layout_height="217dp" android:id="@+id/productImage"
-               />
+               android:background="#E7E7E7" android:layout_margin="16dp"
+               app:srcCompat="@drawable/addimage"/>
     <Button
             android:text="Scan Product"
             android:layout_width="match_parent"
@@ -26,7 +37,7 @@
                 android:layout_height="wrap_content" android:paddingLeft="12dp" android:id="@+id/textView3"
                 android:textSize="18sp"/>
         <EditText
-                android:layout_width="298dp"
+                android:layout_width="247dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
@@ -67,18 +78,27 @@
                 android:ems="10"
                 android:id="@+id/newproduct_quantity"/>
     </LinearLayout>
-    <SeekBar
+    <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="38dp" android:id="@+id/seekBar"/>
-    <TextView
-            android:text="$0.00"
-            android:layout_width="match_parent"
-            android:layout_height="54dp" android:id="@+id/newproduct_cost" android:gravity="center_vertical|right"
-            android:paddingRight="12dp"
-            android:textSize="24sp"/>
+            android:layout_height="55dp">
+        <TextView
+                android:text="Cost:"
+                android:layout_width="277dp"
+                android:layout_height="wrap_content" android:id="@+id/textView14" android:textSize="24sp"
+                android:gravity="right"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="$0.00"
+                android:ems="10"
+                android:id="@+id/newproduct_cost" android:layout_weight="1" android:textColor="#57bef6"
+                android:textSize="24sp" android:gravity="right"/>
+    </LinearLayout>
     <Button
             android:text="Add Product"
             android:layout_width="match_parent"
-            android:layout_height="63dp" android:textColor="#ffffff"
-            android:backgroundTint="@color/colorPrimary" android:id="@+id/button3"/>
+            android:layout_height="wrap_content" android:textColor="#ffffff"
+            android:backgroundTint="@color/colorPrimary" android:id="@+id/add_button"/>
 </LinearLayout>
