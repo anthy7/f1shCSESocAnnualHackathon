@@ -24,7 +24,9 @@ class OrdersFragment : Fragment() {
         activity?.setTitle("Orders")
 
         viewManager = LinearLayoutManager(this.context)
-        viewAdapter = OrdersRecyclerViewAdapter(arrayOf("Order #273", "Order #991", "Order #918"))
+        viewAdapter = OrdersRecyclerViewAdapter((this.context as MainActivity).names, (this.context as MainActivity).items)
+        activeOrdersView.text = (this.context as MainActivity).activeOrders.toString()
+        totalOrdersView.text = (this.context as MainActivity).totalOrders.toString()
 
         recyclerView = ordersList.apply {
             // use a linear layout manager
@@ -34,5 +36,6 @@ class OrdersFragment : Fragment() {
             adapter = viewAdapter
 
         }
+
     }
 }
